@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lifeng.dao.IStudentDao">
+	<!-- 配置结果映射 -->	
+	<resultMap id="studentResultMap" type="Student">
+		<id property="sid" column="id" />
+		<result property="sname" column="studentname" />
+		<result property="sex" column="gender" />
+		<result property="age" column="age" />		
+	</resultMap>		
+ 	<select id="findAllStudents" resultMap="studentResultMap">
+		SELECT 
+			id,
+			studentname,
+			gender,
+			age		
+		FROM STUDENT
+ 	</select>
+ 	<!-- 也可用下面的查询语句 -->
+ 	<!-- <select id="findAllStudents" resultType="Student">
+		SELECT 
+			*	
+		FROM STUDENT
+ 	</select> --> 	
+</mapper>

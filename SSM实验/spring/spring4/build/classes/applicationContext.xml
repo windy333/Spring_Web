@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="user1" class="com.lifeng.entity.User">
+		<property name="uid" value="1"></property>
+		<property name="uname" value="水利万物而不争"></property>
+		<property name="gender" value="男"></property>
+		<property name="age" value="18"></property>
+</bean>
+	<bean id="user2" class="com.lifeng.entity.User">
+		<property name="uid" >
+			<value>2</value>
+		</property>
+		<property name="uname" >
+			<value>上善若水</value>
+		</property>
+		<property name="gender" >
+			<value>女</value>
+		</property>
+		<property name="age" >
+			<value>21</value>
+		</property>
+		
+</bean>
+	<bean id="user3" class="com.lifeng.entity.User">
+		<constructor-arg name="uid" value="3"></constructor-arg>
+		<constructor-arg name="uname" value="张无忌"></constructor-arg>
+		<constructor-arg name="gender" value="男"></constructor-arg>
+		<constructor-arg name="age" value="22"></constructor-arg>
+
+</bean>
+
+	<bean id="user4" class="com.lifeng.entity.User">
+		<constructor-arg index="0" value="4"></constructor-arg>
+		<constructor-arg index="1" value="张无忌"></constructor-arg>
+		<constructor-arg index="2" value="男"></constructor-arg>
+		<constructor-arg index="3" value="22"></constructor-arg>
+
+</bean>
+	<bean id="user5" class="com.lifeng.entity.User" 
+		p:uid="5" p:uname="王8" p:gender="女" p:age="23"/><bean id="mycompany"
+		class="com.lifeng.entity.Company">
+	<property name="id" value="1"></property>
+	<property name="companyname" value="黄冈师范学院"></property>
+	<property name="address" value="黄州区"></property>
+	
+</bean>
+	<bean id="user6" class="com.lifeng.entity.User">
+		<property name="uid" value="6"></property>
+		<property name="uname" value="李四"></property>
+		<property name="gender" value="女"></property>
+		<property name="age" value="19"></property>
+		<property name="company">
+		<ref bean="mycompany"/>
+		</property>
+	</bean>
+
+
+<!-- <bean id="company" class="com.lifeng.entity.Company">
+		<property name="id" value="2"></property>
+		<property name="companyname" value="黄冈师范"></property>
+		<property name="address" value="黄州区"></property>
+	</bean> -->
+
+
+<bean id="user7" class="com.lifeng.entity.User" autowire="byName">
+		<property name="uid" value="7"></property>
+		<property name="uname" value="李四"></property>
+		<property name="gender" value="女"></property>
+		<property name="age" value="19"></property>
+	</bean>
+	
+	
+	<bean id="user8" class="com.lifeng.entity.User" autowire="byType">
+		<property name="uid" value="8"></property>
+		<property name="uname" value="李四"></property>
+		<property name="gender" value="女"></property>
+		<property name="age" value="19"></property>
+	</bean>
+
+
+
+
+</beans>
